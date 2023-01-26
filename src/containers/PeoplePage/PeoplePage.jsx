@@ -14,12 +14,10 @@ const PeoplePage = () => {
         const peopleList = res.results.map(({name, url}) => {
             const id = getPeopleId(url);
             const img = getPeopleImg(id);
-
             return { 
                 id,
                 name,
                 img,
-                url
             };
         });
 
@@ -33,8 +31,11 @@ const PeoplePage = () => {
         <>
             {people && (
                 <ul>
-                    {people.map(({name, url}) => 
-                        <li key={name}>{name}</li>
+                    {people.map(({id, name, img}) => 
+                        <li key={id}>
+                            <img src={img} alt={name} />
+                            <p>{name}</p>
+                        </li>
                     )}
                 </ul>
             )}
