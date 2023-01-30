@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { propTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
+
+import { withErrorApi } from '@hoc-helpers/withErrorApi';
+import PeopleList from '@components/PeoplePage/PeopleList';
 import { getApiResource } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
 import { getPeopleId, getPeopleImg } from '@services/getPeopleData';
-import PeopleList from '@components/PeoplePage/PeopleList';
-import { withErrorApi } from '@hoc-helpers/withErrorApi';
+
 
 const PeoplePage = ({setErrorApi}) => {
     const [people, setPeople] = useState(null);
@@ -44,7 +46,7 @@ const PeoplePage = ({setErrorApi}) => {
 }
 
 PeoplePage.propTypes = {
-    people: propTypes.array
+    setErrorApi: PropTypes.func
 }
 
 export default withErrorApi(PeoplePage);
