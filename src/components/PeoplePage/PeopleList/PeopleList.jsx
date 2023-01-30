@@ -1,4 +1,4 @@
-import styles from '../PeopleList/PeopleList.module.css';
+import styles from './PeopleList.module.css';
 
 const PeopleList = ({ people }) => {
     return (

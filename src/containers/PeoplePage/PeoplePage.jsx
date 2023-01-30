@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { getApiResource } from '../../utils/network';
-import { API_PEOPLE } from '../../constants/api';
-import { getPeopleId, getPeopleImg } from '../../services/getPeopleData';
-import PeopleList from '../../components/PeoplePage/PeopleList';
-import { withErrorApi } from '../../hoc-helpers/withErrorApi';
+import { propTypes } from 'prop-types';
+import { getApiResource } from '@utils/network';
+import { API_PEOPLE } from '@constants/api';
+import { getPeopleId, getPeopleImg } from '@services/getPeopleData';
+import PeopleList from '@components/PeoplePage/PeopleList';
+import { withErrorApi } from '@hoc-helpers/withErrorApi';
 
 const PeoplePage = ({setErrorApi}) => {
     const [people, setPeople] = useState(null);
 
     const getResource = async (url) => {
-        const res = await getApiResource(url+1);
+        const res = await getApiResource(url);
 
         if (res) {
             const peopleList = res.results.map(({name, url}) => {
@@ -40,6 +41,10 @@ const PeoplePage = ({setErrorApi}) => {
             {people && <PeopleList people={people} />}
         </>
     );
+}
+
+PeoplePage.propTypes = {
+    people: propTypes.array
 }
 
 export default withErrorApi(PeoplePage);
