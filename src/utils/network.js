@@ -9,6 +9,7 @@ export const getApiResource = async (url) => {
         
         return (await res).json() ;
     } catch(e) {
-        throw e;
+        console.error('Could not fetch.', e.message);
+		return false;
     }
 }
