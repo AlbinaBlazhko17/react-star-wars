@@ -1,11 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
+:root {
+	--color-dark-gray: #10100e;
+
+	--color-blue:   #6a83fb;
+	--color-violet: #ae72c2;
+
+	--spacing-medium: 20px;
+	--spacing-large: 30px;
+
+	--font-size-main: 16px;
+	--font-size-header: 26px;
+
+	--width-max: 1200px;
+
+	--font-bold: 600;
+	--transition: .4s;
+	--font-family-main: sans-serif;
+
+	--border-radius-small: 3px;
+
+	--text-shadow-yellow:
+		0 0 2px #fff,
+		0 0 40px var(--color-blue);
+
+	--theme-default-header: #cccc46;
+	--theme-default-bgimage: url(@assets/star_background.jpg);
+}
+
+
 body {
-  background: url(../assets/star_background.jpg) top center;
-  font-family: 'Fjalla One', sans-serif;
+	background-image: var(--theme-default-bgimage);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: fixed;
+  	font-family: 'Fjalla One', sans-serif;
+  	font-size: var(--font-size-main);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header__text { 
+  line-height: 1.7;
+  font-style: 26px;
+  text-shadow: 0 0 2px black;
+  color: var(--theme-default-header);
+  transition: color var(--transition);
 }

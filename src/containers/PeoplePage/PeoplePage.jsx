@@ -41,6 +41,7 @@ const PeoplePage = ({setErrorApi}) => {
         <>
             <h1>Navigation</h1>
             {people && <PeopleList people={people} />}
+
         </>
     );
 }
