@@ -10,7 +10,8 @@
 .list__item {
     width: 200px;
     height: 320px;
-    margin: 40px;
+    margin: 17px;
+    margin-bottom: 30px;
     border-radius: 3%;
     background-color: #fff;
     cursor: pointer;
