@@ -1,0 +1,39 @@
+.button {
+    min-width: 100px;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: 5px;
+    background: none;
+    outline: none;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.button:disabled,
+.button:disabled:hover {
+    color: gray;
+    border-color: gray;
+    background-color: transparent;
+    cursor: auto;
+}
+
+.dark {
+    border: 1px solid white;
+    color: white;
+}
+
+.dark:hover {
+    background-color: #fff;
+    color: black;
+}
+
+.light {
+    border: 1px solid black;
+    color: black;
+}
+
+.light:hover {
+    background-color: black;
+    color: #fff;
+}
