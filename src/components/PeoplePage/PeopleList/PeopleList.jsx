@@ -10,8 +10,10 @@ const PeopleList = ({ people }) => {
                 {people.map(({id, name, img}) => 
                     <li key={id} className={styles.list__item}>
                         <Link to={`/people/${id}`}>
-                            <img src={img} alt={name} className={styles.list__img} />
-                            <p>{name}</p>
+                            <div className={styles.list__content}>
+                                <img src={img} alt={name} className={styles.list__img} />
+                                <p>{name}</p>
+                            </div>
                         </Link>
                     </li>
                 )}
