@@ -4,8 +4,11 @@ import styles from './PersonPhoto.module.css';
 const PersonPhoto = ({ personPhoto, personName}) => {
     return (
         <>
-            <div>
-                <img src={personPhoto} alt={personName} />
+            <div className={styles.container}>
+                <img 
+                    src={personPhoto}
+                    alt={personName}
+                    className={styles.photo} />
             </div>
         </>
     );
