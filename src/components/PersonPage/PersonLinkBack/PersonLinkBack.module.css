@@ -1,0 +1,13 @@
+.link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+    color: yellow;
+    text-shadow: 2px 3px 4px rgba(206,190,39,0.7);
+}
+
+.text {
+    margin-left: 10px;
+    font-size: 25px;
+}
