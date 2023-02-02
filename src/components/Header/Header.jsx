@@ -6,8 +6,8 @@ const Header = () => {
     return (
         <div className={styles.container}>
             <ul className={styles.list__container}>
-                <li> <NavLink to="/" className={(navData) => (navData.isActive ? 'active' : '')}>Home</NavLink> </li>
-                <li> <NavLink to="/people/?page=1">People</NavLink></li>
+                <li> <NavLink to="/" className={(navData) => (navData.isActive ? 'active' : '')} end>Home</NavLink> </li>
+                <li> <NavLink to="/people?page=1">People</NavLink></li>
             </ul>
         </div >
 

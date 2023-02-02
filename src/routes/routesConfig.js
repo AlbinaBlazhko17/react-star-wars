@@ -6,7 +6,7 @@ import PersonPage from "@containers/PersonPage";
 const routesConfig = [
     {
         path: '/',
-        element: <HomePage/>
+        element: <HomePage/>,
     },
     {
         path: '/people',
