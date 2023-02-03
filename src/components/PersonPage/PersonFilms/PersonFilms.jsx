@@ -15,8 +15,7 @@ const PersonFilms = ({ personFilms }) => {
             setFilms(response);
         })();
     }, [])
-
-    console.log(personFilms);
+    
     return (
         <div className={styles.wrapper}>
             <ul className={styles.list__container}>
