@@ -22,11 +22,11 @@ const PersonPage = ({ setErrorApi }) => {
     const [personFilms, setPersonFilms] = useState(null);
 
     const id = useParams().id;
-    setPersonId(id);
 
     useEffect(() => {
         (async () => {
             const res = await getApiResource(`${API_PERSON}/${id}/`);
+            setPersonId(id);
 
             if(res){ 
                 setPersonName(res.name); 
