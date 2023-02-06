@@ -17,7 +17,7 @@ const PersonPhoto = ({ personId, personPhoto, personName}) => {
     }
 
     const remove = () => {
-        dispatch(removePersonFromFavourite());
+        dispatch(removePersonFromFavourite(personId));
     }
 
     return (
