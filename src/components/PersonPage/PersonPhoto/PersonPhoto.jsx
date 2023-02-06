@@ -4,15 +4,20 @@ import { addPersonToFavourite, removePersonFromFavourite} from '@store/actions';
 
 import styles from './PersonPhoto.module.css';
 
-const PersonPhoto = ({ personPhoto, personName}) => {
+const PersonPhoto = ({ personId, personPhoto, personName}) => {
     const dispatch = useDispatch();
 
     const add = () => {
-        addPersonToFavourite();
+        dispatch(addPersonToFavourite({
+            [personId]: {
+                name: personName,
+                img: personPhoto
+            }
+        }));
     }
 
     const remove = () => {
-        removePersonFromFavourite();
+        dispatch(removePersonFromFavourite());
     }
 
     return (
@@ -30,6 +35,7 @@ const PersonPhoto = ({ personPhoto, personName}) => {
 }
 
 PersonPhoto.propTypes = {
+    personId: PropTypes.string,
     personPhoto: PropTypes.string,
     personName: PropTypes.string
 }

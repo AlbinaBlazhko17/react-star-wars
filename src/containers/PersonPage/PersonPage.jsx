@@ -15,12 +15,14 @@ import styles from './PersonPage.module.css';
 const PersonFilms = React.lazy(() => import('@components/PersonPage/PersonFilms'));
 
 const PersonPage = ({ setErrorApi }) => {
+    const [personId, setPersonId] = useState(null);
     const [personInfo, setPersonInfo] = useState(null);
     const [personName, setPersonName] = useState(null);
     const [personPhoto, setPersonPhoto] = useState(null);
     const [personFilms, setPersonFilms] = useState(null);
 
     const id = useParams().id;
+    setPersonId(id);
 
     useEffect(() => {
         (async () => {
@@ -58,6 +60,7 @@ const PersonPage = ({ setErrorApi }) => {
                     <PersonPhoto 
                         personPhoto={personPhoto} 
                         personName={personName}
+                        personId={personId}
                     />
                     
                     {personInfo && <PersonInfo personInfo={personInfo}/>}
