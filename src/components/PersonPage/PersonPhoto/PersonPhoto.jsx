@@ -2,25 +2,28 @@ import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addPersonToFavourite, removePersonFromFavourite} from '@store/actions';
 
+import iconFavourite from './img/favorite.svg'
+import iconFavouriteFill from './img/favorite-fill.svg'
+
 import styles from './PersonPhoto.module.css';
 
 const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPersonFavourite}) => {
     const dispatch = useDispatch();
 
-    const add = () => {
-        dispatch(addPersonToFavourite(
-            {
-                id: personId,
-                name: personName,
-                img: personPhoto
-            }
-        ));
-        setPersonFavourite(true);
-    }
-
-    const remove = () => {
-        dispatch(removePersonFromFavourite(personId));
-        setPersonFavourite(false);
+    const dispatchFavouritePeople = () => {
+        if (personFavourite) {
+            dispatch(removePersonFromFavourite(personId));
+            setPersonFavourite(false);
+        } else {
+            dispatch(addPersonToFavourite(
+                {
+                    id: personId,
+                    name: personName,
+                    img: personPhoto
+                }
+            ));
+            setPersonFavourite(true);
+        }
     }
 
     return (
@@ -31,9 +34,12 @@ const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPe
                     alt={personName}
                     className={styles.photo} />
             </div>
-            {personFavourite 
-                    ?  <button onClick={remove}>Delete from favourite</button>
-                    :  <button onClick={add}>Add to favourite</button>}
+
+            <img
+                src={personFavourite ? iconFavouriteFill :iconFavourite}
+                onClick={dispatchFavouritePeople}
+                className={styles.favourite}
+                alt="Add to favourite" />
         </>
     );
 }
