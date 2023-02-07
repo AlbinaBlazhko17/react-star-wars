@@ -4,7 +4,7 @@ import { addPersonToFavourite, removePersonFromFavourite} from '@store/actions';
 
 import styles from './PersonPhoto.module.css';
 
-const PersonPhoto = ({ personId, personPhoto, personName}) => {
+const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPersonFavourite}) => {
     const dispatch = useDispatch();
 
     const add = () => {

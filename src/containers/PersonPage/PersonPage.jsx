@@ -1,10 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { useParams } from 'react-router';
 import React, { useEffect, useState, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+
 import { getApiResource } from '@utils/network';
 import { API_PERSON } from '@constants/api';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
 import { getPeopleImg } from '@services/getPeopleData';
+
 import PersonInfo from '@components/PersonPage/PersonInfo';
 import PersonPhoto from '@components/PersonPage/PersonPhoto';
 import PersonLinkBack from '@components/PersonPage/PersonLinkBack';
@@ -20,12 +23,18 @@ const PersonPage = ({ setErrorApi }) => {
     const [personName, setPersonName] = useState(null);
     const [personPhoto, setPersonPhoto] = useState(null);
     const [personFilms, setPersonFilms] = useState(null);
+    const [personFavourite, setPersonFavourite] = useState(false);
+
+    const storeData = useSelector(state => state.favurite);
 
     const id = useParams().id;
 
     useEffect(() => {
         (async () => {
             const res = await getApiResource(`${API_PERSON}/${id}/`);
+
+            storeData[personId]? setPersonFavourite(true): setPersonFavourite(false);
+
             setPersonId(id);
 
             if(res){ 
@@ -61,6 +70,8 @@ const PersonPage = ({ setErrorApi }) => {
                         personPhoto={personPhoto} 
                         personName={personName}
                         personId={personId}
+                        personFavourite={personFavourite}
+                        setPersonFavourite={setPersonFavourite}
                     />
                     
                     {personInfo && <PersonInfo personInfo={personInfo}/>}
