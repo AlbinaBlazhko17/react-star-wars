@@ -25,7 +25,7 @@ const PersonPage = ({ setErrorApi }) => {
     const [personFilms, setPersonFilms] = useState(null);
     const [personFavourite, setPersonFavourite] = useState(false);
 
-    const storeData = useSelector(state => state.favurite);
+    const storeData = useSelector(state => state.favourite);
 
     const id = useParams().id;
 
@@ -33,7 +33,11 @@ const PersonPage = ({ setErrorApi }) => {
         (async () => {
             const res = await getApiResource(`${API_PERSON}/${id}/`);
 
-            storeData[personId]? setPersonFavourite(true): setPersonFavourite(false);
+            storeData.forEach(item => {
+                    console.log(item.id);
+                    console.log(id);
+                    debugger
+            })
 
             setPersonId(id);
 

@@ -8,16 +8,19 @@ const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPe
     const dispatch = useDispatch();
 
     const add = () => {
-        dispatch(addPersonToFavourite({
-            [personId]: {
+        dispatch(addPersonToFavourite(
+            {
+                id: personId,
                 name: personName,
                 img: personPhoto
             }
-        }));
+        ));
+        setPersonFavourite(true);
     }
 
     const remove = () => {
         dispatch(removePersonFromFavourite(personId));
+        setPersonFavourite(false);
     }
 
     return (
@@ -28,8 +31,9 @@ const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPe
                     alt={personName}
                     className={styles.photo} />
             </div>
-            <button onClick={add}>Add to favourite</button>
-            <button onClick={remove}>Delete from favourite</button>
+            {personFavourite 
+                    ?  <button onClick={remove}>Delete from favourite</button>
+                    :  <button onClick={add}>Add to favourite</button>}
         </>
     );
 }
@@ -37,7 +41,10 @@ const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPe
 PersonPhoto.propTypes = {
     personId: PropTypes.string,
     personPhoto: PropTypes.string,
-    personName: PropTypes.string
+    personName: PropTypes.string,
+    personFavourite: PropTypes.bool,
+    setPersonFavourite: PropTypes.func
+
 }
 
 export default PersonPhoto;

@@ -1,17 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { omit } from 'lodash';
 import { addPersonToFavourite, removePersonFromFavourite } from '../actions';
 
-const initialState = {};
-
-const favourite = createReducer(initialState, {
-        [addPersonToFavourite]: (state, action) => {
-            return {...state, ...action.payload}
-        },
-        [removePersonFromFavourite]: (state, action) => { return omit(state, [action.payload]) }
-    },
-[],
-state => state
+const favourite = createReducer([],
+        (builder) => {
+           builder
+                .addCase(addPersonToFavourite, (state, action) => { state.push(action.payload) }) 
+                .addCase(removePersonFromFavourite,  (state, action) => { return state = state.filter(item => item.id !== action.payload) })
+                .addDefaultCase(state => state)
+        }
 );
 
 export default favourite;
