@@ -33,13 +33,12 @@ const PersonPhoto = ({ personId, personPhoto, personName, personFavourite, setPe
                     src={personPhoto}
                     alt={personName}
                     className={styles.photo} />
+                <img
+                    src={personFavourite ? iconFavouriteFill :iconFavourite}
+                    onClick={dispatchFavouritePeople}
+                    className={styles.favourite}
+                    alt="Add to favourite" />
             </div>
-
-            <img
-                src={personFavourite ? iconFavouriteFill :iconFavourite}
-                onClick={dispatchFavouritePeople}
-                className={styles.favourite}
-                alt="Add to favourite" />
         </>
     );
 }
