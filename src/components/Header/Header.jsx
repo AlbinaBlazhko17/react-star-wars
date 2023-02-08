@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Favourite from '../Favourite';
 
 import styles from './Header.module.css';
 
@@ -8,12 +9,10 @@ const Header = () => {
             <ul className={styles.list__container}>
                 <li> <NavLink to="/" className={(navData) => (navData.isActive ? 'active' : '')} end>Home</NavLink> </li>
                 <li> <NavLink to="/people?page=1">People</NavLink></li>
-                <li> <NavLink to="/favourites">Favourites</NavLink></li>
             </ul>
+            <Favourite/>
         </div >
-
-
     );
 }
 
-export default Header;
+export default Header; 
