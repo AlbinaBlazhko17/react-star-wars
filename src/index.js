@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '@store/store';
+import ThemeProvider from '@context/ThemeProvider';
 
 import App from '@containers/App';
 
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <React.StrictMode>
         <Provider store={store}>
-          <App />
+          <ThemeProvider>
+              <App />
+          </ThemeProvider>
         </Provider>
       </React.StrictMode>
     </BrowserRouter>
