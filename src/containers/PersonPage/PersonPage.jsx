@@ -34,7 +34,7 @@ const PersonPage = ({ setErrorApi }) => {
             const res = await getApiResource(`${API_PERSON}/${id}/`);
 
             storeData.forEach(item => {
-                if (item.id === id) {setPersonFavourite(true); console.log(id)}
+                if (item.id === id) setPersonFavourite(true);
                 else setPersonFavourite(false);
             });
 
