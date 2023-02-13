@@ -4,6 +4,7 @@ import { getApiResource } from '@utils/network';
 import { API_SEARCH } from '@constants/api';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
+import { SearchPageInfo } from '@components/SearchPage/SearchPageInfo';
 
 import styles from './SearchPage.module.css';
 
@@ -47,6 +48,7 @@ const SearchPage = ({ setErrorApi }) => {
              value={inputSearchValue} 
              onChange={handleInputChange}
              placeholder='Input character`s name '/>
+             <SearchPageInfo people={people}/>
         </>
     );
 }
