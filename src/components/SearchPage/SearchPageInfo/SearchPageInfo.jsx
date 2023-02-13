@@ -8,18 +8,18 @@ const SearchPageInfo = ({ people }) => (
             {console.log(people.length)}
             {people.length
                 ? ( 
-                    <ul>
+                    <ul className={styles.list__container}>
                         {people.map(({ id, name, img }) => 
-                            <Link to={`/people/${id}`}>
-                                <li key={id}>
-                                    <img src={img} alt={name} />
-                                    <p>{name}</p>
+                                <li key={id} className={styles.list__item}>
+                                      <Link to={`/people/${id}`}>
+                                        <img src={img} alt={name} className={styles.person__photo}/>
+                                        <p className={styles.person__name}>{name}</p>
+                                      </Link>
                                 </li>
-                            </Link>
                         )}
                     </ul>
                 )
-                : <h2>No results</h2> 
+                : <h2 className={styles.person__comment}>No results</h2> 
             }
     
         </>
