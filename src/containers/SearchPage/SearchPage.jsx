@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { getApiResource } from '@utils/network';
 import { API_SEARCH } from '@constants/api';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
-import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
-import { SearchPageInfo } from '@components/SearchPage/SearchPageInfo';
+import { getPeopleId, getPeopleImg } from '@services/getPeopleData';
+import SearchPageInfo from '@components/SearchPage/SearchPageInfo';
 
 import styles from './SearchPage.module.css';
 
@@ -19,14 +19,16 @@ const SearchPage = ({ setErrorApi }) => {
         if(res) {
             const peopleList = res.results.map(({ name, url }) => {
                 const id = getPeopleId(url);
-                const img = getPeopleImage(id);
+                const img = getPeopleImg(id);
 
                 return {
                     id,
                     name,
                     img
                 }
-            })
+            });
+
+            // console.log(peopleList);
             setPeople(peopleList);
             setErrorApi(false);
         } else {
@@ -40,6 +42,10 @@ const SearchPage = ({ setErrorApi }) => {
         getResponse(value)
     }
 
+    useEffect(() => {
+        getResponse('');
+    }, []);
+
     return (
         <>
             <h1 className='header__text'>Search</h1>
@@ -47,7 +53,7 @@ const SearchPage = ({ setErrorApi }) => {
              type="text"
              value={inputSearchValue} 
              onChange={handleInputChange}
-             placeholder='Input character`s name '/>
+             placeholder='Input character`s name'/>
              <SearchPageInfo people={people}/>
         </>
     );
