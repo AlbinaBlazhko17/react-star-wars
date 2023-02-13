@@ -5,7 +5,6 @@ import styles from './SearchPageInfo.module.css';
 
 const SearchPageInfo = ({ people }) => (
         <>
-            {console.log(people.length)}
             {people.length
                 ? ( 
                     <ul className={styles.list__container}>
