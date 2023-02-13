@@ -18,8 +18,8 @@
 }
 
 .person__photo {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 120px;
     object-fit: cover;
     object-position: center center;
     border-radius: 3px;

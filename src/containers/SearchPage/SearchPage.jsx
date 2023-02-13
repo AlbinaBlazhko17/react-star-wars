@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { PropTypes } from 'prop-types';
+import { debounce } from 'lodash';
 import { getApiResource } from '@utils/network';
 import { API_SEARCH } from '@constants/api';
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
@@ -35,10 +36,14 @@ const SearchPage = ({ setErrorApi }) => {
         }
     }
 
+    const debouncedGetRespounce = useCallback(
+        debounce(value => getResponse(value), 300)
+    , []);
+
     const handleInputChange = e => {
         const value = e.target.value;
         setInputSearchValue(value);
-        getResponse(value)
+        debouncedGetRespounce(value);
     }
 
     useEffect(() => {
