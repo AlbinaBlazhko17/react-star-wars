@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import styles from './SearchPageInfo.module.css';
 
@@ -9,10 +10,12 @@ const SearchPageInfo = ({ people }) => (
                 ? ( 
                     <ul>
                         {people.map(({ id, name, img }) => 
-                            <li key={id}>
-                                <img src={img} alt={name} />
-                                <p>{name}</p>
-                            </li>
+                            <Link to={`/people/${id}`}>
+                                <li key={id}>
+                                    <img src={img} alt={name} />
+                                    <p>{name}</p>
+                                </li>
+                            </Link>
                         )}
                     </ul>
                 )
