@@ -28,7 +28,6 @@ const SearchPage = ({ setErrorApi }) => {
                 }
             });
 
-            // console.log(peopleList);
             setPeople(peopleList);
             setErrorApi(false);
         } else {
