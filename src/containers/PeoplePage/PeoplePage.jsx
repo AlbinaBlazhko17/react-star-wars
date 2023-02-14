@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 
 import { withErrorApi } from '@hoc-helpers/withErrorApi';
-import PeopleList from '@components/PeoplePage/PeopleList';
+// import PeopleList from '@components/PeoplePage/PeopleList';
 import { getApiResource } from '@utils/network';
 import { API_PEOPLE } from '@constants/api';
 import { getPeopleId, getPeopleImg, getPeopleDataId } from '@services/getPeopleData';
 import { useQueryParams } from '@hooks/useQueryParams';
 import PeopleNavigation from '@components/PeoplePage/PeopleNavigation';
+
+const PeopleList = React.lazy(() => import('@components/PeoplePage/PeopleList'));
 
 
 const PeoplePage = ({ setErrorApi }) => {
