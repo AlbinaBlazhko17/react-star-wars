@@ -8,8 +8,12 @@ const UiVideo = ({
      classes
 }) => {
     return (
-        <video className={classNames(styles.video, classes)}>
-            <source src={src}/>
+        <video 
+            className={classNames(styles.video, classes)}
+            autoPlay
+            loop
+            muted>
+            <source src={src} type="video/mp4"/>
         </video>
     );
 }

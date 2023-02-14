@@ -28,6 +28,7 @@ const Header = () => {
                 <li> <NavLink to="/" className={(navData) => (navData.isActive ? 'active' : '')} end>Home</NavLink> </li>
                 <li> <NavLink to="/people?page=1">People</NavLink></li>
                 <li> <NavLink to="/search">Search</NavLink></li>
+                <li> <NavLink to="/error">Error</NavLink></li>
             </ul>
             <Favourite/>
         </div >
