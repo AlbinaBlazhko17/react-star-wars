@@ -21,6 +21,7 @@ const Header = () => {
             default: setIcon(imgSpace);
         }
     }, [isTheme])
+    
     return (
         <div className={styles.container}>
             <img className={styles.logo} src={icon} alt='Star wars' />

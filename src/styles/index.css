@@ -50,6 +50,11 @@
 	--theme-dark-bgimage: linear-gradient(to right bottom, #000000, #160b11, #20141e, #281b2e, #2b2440);
 	--theme-neutral-bgimage: url(@assets/star_background.jpg);
 	--theme-default-bgimage: var(--theme-neutral-bgimage);
+
+	--theme-light-shadow:   rgba(41, 229, 45, .4);
+    --theme-dark-shadow:    rgba(216, 34, 40, .4);
+    --theme-neutral-shadow:  rgba(224, 224, 81, 0.4);
+    --theme-default-shadow:  var(--theme-neutral-shadow);
 }
 
 
@@ -74,6 +79,10 @@ code {
   text-shadow: 0 0 2px black;
   color: var(--theme-default-header);
   transition: color var(--transition);
+}
+
+.item__hover:hover {
+	box-shadow: 0px 7px 40px  var(--theme-default-shadow);
 }
 
 ::-webkit-scrollbar {

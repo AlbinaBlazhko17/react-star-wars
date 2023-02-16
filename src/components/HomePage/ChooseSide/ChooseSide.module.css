@@ -3,9 +3,7 @@
     flex-wrap: wrap;
     margin-top: 40px;
     border-radius: 10px;
-    --color-shadow-light:   rgba(41, 229, 45, .4);
-    --color-shadow-dark:    rgba(216, 34, 40, .4);
-    --color-shadow-neutral: rgba(224, 224, 81, 0.4);
+
 }
 
 .item {
@@ -47,15 +45,15 @@
 }
 .item__neutral {
     text-shadow: 0 0 5px currentColor;
-    color: var(--color-neitral);
+    color: var(--color-neutral);
 }
 
 .item__light:hover {
-    box-shadow: 0 0 7px 2px var(--color-shadow-light);
+    box-shadow: 0 0 7px 2px var(--theme-light-shadow);
 }
 .item__dark:hover {
-    box-shadow: 0 0 7px 2px var(--color-shadow-dark);
+    box-shadow: 0 0 7px 2px var(--theme-dark-shadow);
 }
 .item__neutral:hover {
-    box-shadow: 0 0 7px 2px var(--color-shadow-neutral);
+    box-shadow: 0 0 7px 2px var(--theme-neutral-shadow);
 }

@@ -15,6 +15,7 @@ const ChooseSideItem = ({
     theme
 }) => {
     const isTheme = useTheme();
+    
     return (
         <div className={classNames(styles.item, classes)} onClick={() => isTheme.change(theme)}>
             <div className={styles.item__header}>{text}</div>
